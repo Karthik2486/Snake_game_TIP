@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    form {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[name="level"][value="Easy"] {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+        button[name="level"][value="Medium"] {
+            background-color: #FF9800; /* Orange */
+            color: white;
+        }
+
+        button[name="level"][value="Hard"] {
+            background-color: #F44336; /* Red */
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    .instructions {
+            max-width: 600px; /* Limits the width of instructions */
+            margin: 20px auto; /* Centers the instructions section */
+            padding: 15px; /* Adds some padding around the instructions */
+            background-color: #ffff99; /* White background for contrast */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            font-family: Lucida Console,Courier New, monospace;
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style ="background-color:	rgb(153, 255, 179);">
+
+<div style = "text-align:center; margin-bottom: -20px; margin-top: 20px;">
+<img src = "{{ url_for('static', filename='image/logo.png') }}?v=1"  width = 90px, height = 90px>
+</div>
+
+<h1 style = "text-align:center; font-size:50px; font-family: Lucida Console,Courier New, monospace;">Snake Game</h1>
+
+<hr style ="width 80%; margin-top: -20px; border: 1px solid ">
+
+<p style = "margin-top: 20px ;text-align:center; font-style: oblique; font-size: 20px; color : rgb(0, 102, 102);">"Welcome to the Snake Game! <br> Test your mathematical ability as
+    you guide the snake to collect food by answering
+    correct, growing longer with each bite.<br> But be careful – avoid hitting the walls or yourself or
+    answering wrong to keep the game going!" </p>
+
+<!--<p style = "margin-top: 20px ;text-align:center; font-size: 20px; color : rgb(102, 102, 51)">-->
+<!--    Instruction to proceed with the game <br></p>-->
+
+<!--<ul style = "text-align:center;">-->
+<!--    <li style = "text-align:center;">This game is for students below the age 13 for-->
+<!--        enhancing their arithemetic knowledge </li>-->
+<!--    <li>There are three level 'EASY' 'MEDIUM' 'HARD'</li>-->
+<!--</ul>-->
+
+<h3 style = "text-align:center;font-size: 30px ;font-style: oblique ">Instructions to proceed with the game</h3>
+    <div class="instructions">
+        <p>1. This game is for students below the age 13 for
+              enhancing their arithemetic knowledge </p>
+        <p>2. Choose your desired level: Easy, Medium, or Hard.</p>
+        <p>3. Once you select a level, the game will begin.</p>
+        <p>4. Answer correct to the question displayed by making the snake eat the answer block.</p>
+        <p>5. If a wrong answer is selected you move OUT of the game.</p>
+        <p>6. Colliding with the snake body and the border will be considered as loosing.</p>
+    </div>
+
+<h2 style = "text-align:center; font-family: font-family:courier; margin-bottom: -50px;
+   margin-top: 20px ;color : rgb(0, 102, 102)">Select Level to PLAY !!!!</h2>
+
+<form action="{{ url_for('start_game') }}" method="POST" style = " margin-top = 20px" >
+        <button type="submit" name="level" value="START">START</button>
+<!--        <button type="submit" name="level" value="Medium">Medium</button>-->
+<!--        <button type="submit" name="level" value="Hard">Hard</button>-->
+</form>
+<a href="{{ url_for('logout') }}">Logout</a>
+
+</body>
+</html>
